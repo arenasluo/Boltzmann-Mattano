@@ -1,0 +1,14 @@
+
+clear all
+close all
+clc
+
+Data = load('BM20F.txt');
+z = Data(:,1)*10000; % unit:astrom
+x = Data(:,2)*1.85E-23;% average Ge concentration range from (300-770) relation to the Ge fraction,the coefficient is 1.85E-23;X=1.85E-23*C, so that C=1.85*E23X
+c = Data(:,2);%concentration
+plot(z,x)
+grid on
+
+xlabel('Depth (A)')
+ylabel('Ge fraction ')
