@@ -1,0 +1,33 @@
+function s=Simpson()%Simpson Integral
+clear;
+clc;
+options={'lower bound a','upper bound b' ,'insert number M'};
+topic='seting';
+lines=1;
+def={'100.15','185.73','180'};
+h=inputdlg(options,topic,lines,def);
+a=eval(h{1});%lower bound
+b=eval(h{2});%upper bound
+M=eval(h{3});%half of the number in the range
+%********************************************
+f='func';%use f for func
+h=(b-a)/(2*M);
+s1=0;
+s2=0;
+for k=1:M
+    x=a+h*(2*k-1);
+    s1=s1+feval(f,x);
+end
+for k=1:(M-1)
+    x=a+h*2*k;
+    s2=s2+feval(f,x);
+end
+s=h*(feval(f,a)+feval(f,b)+4*s1+2*s2)/3;%use s as sum of Simpson
+end
+
+
+%func
+function y=func(x)
+y=(9.35564*10^21+(-3.99139*10^20-9.35564*10^21)/(1+exp(x-149.319/15.15047)));
+end
+
