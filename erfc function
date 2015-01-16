@@ -1,0 +1,5 @@
+syms x;
+ezplot(erfc(x),[-5,5])
+grid on
+xlabel('x unit of 2')
+ylabel('erfc()')
